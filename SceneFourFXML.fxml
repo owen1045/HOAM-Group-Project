@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneFourController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="410.0" layoutX="-6.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="611.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="352.0" layoutX="20.0" layoutY="21.0" stroke="#f6f5f5" strokeType="INSIDE" strokeWidth="3.0" width="561.0" />
+      <Label layoutX="181.0" layoutY="21.0" prefHeight="61.0" prefWidth="241.0" text="Goal Stopper" textAlignment="CENTER" textFill="#fff600">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="162.0" layoutY="82.0" text="Your Score:">
+         <font>
+            <Font name="Dubai Medium" size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="216.0" layoutX="22.0" layoutY="90.0" stroke="#fffdfd" strokeType="INSIDE" strokeWidth="3.0" width="117.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="162.0" layoutX="22.0" layoutY="116.0" stroke="#fffbfb" strokeType="INSIDE" strokeWidth="3.0" width="94.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="216.0" layoutX="464.0" layoutY="89.0" stroke="#fbfbfb" strokeType="INSIDE" strokeWidth="3.0" width="117.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="162.0" layoutX="487.0" layoutY="117.0" stroke="#fdfdfd" strokeType="INSIDE" strokeWidth="3.0" width="94.0" />
+      <TextArea fx:id="scoreHistory" layoutX="181.0" layoutY="158.0" opacity="0.0" prefHeight="171.0" prefWidth="218.0" />
+      <TextField fx:id="score" layoutX="290.0" layoutY="79.0" opacity="0.0" prefHeight="25.0" prefWidth="116.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Button fx:id="playAgain" layoutX="243.0" layoutY="336.0" mnemonicParsing="false" onAction="#playAgain" text="Play Again!" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="243.0" layoutY="131.0" text="Past Scores:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
