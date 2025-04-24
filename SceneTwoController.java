@@ -1,6 +1,12 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class SceneTwoController 
 {
@@ -15,21 +21,33 @@ public class SceneTwoController
     private Button medButton;
 
     @FXML
-    void handleButton(ActionEvent event)
+    void handleButton(ActionEvent event) throws IOException
     {
       Button clicked = (Button) event.getSource();
+      String mode = "";
+      
       if (clicked == easyButton)
       {
-         System.out.println("easybutton");
+         mode = "easy";
       }
       else if (clicked == medButton)
       {
-         System.out.println("medbutton");
+         mode = "medium";
       }
       else if (clicked == hardButton)
       {
-         System.out.println("hardbutton");
+         mode = "hard";
       }
+      //Loads Scene 3 and passes which mode was clicked
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("SceneThree.fxml"));
+      Parent parent = loader.load();
+      SceneThreeController controller = loader.getController();
+      controller.setMode(mode);
+      Scene scene = new Scene(parent);
+      Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+      window.setScene(scene);
+      window.show();
     }
 
 }

@@ -1,4 +1,3 @@
-
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
@@ -9,15 +8,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
 
 public class SceneThreeController
 {
-
+    private String mode;
+    
     @FXML
     private AnchorPane gamePane;
 
@@ -29,6 +34,7 @@ public class SceneThreeController
     private ArrayList<Ball> balls = new ArrayList<>();
     private Random random = new Random();
     private int score = 0;
+    private int goalScored = 0;
     
     @FXML 
     private Label scoreLabel;
@@ -101,6 +107,8 @@ public class SceneThreeController
             {
                 gamePane.getChildren().remove(ball.imageView);
                 iter.remove();
+                goalScored++;
+                gameOver();
                 
             }
         }
@@ -112,7 +120,44 @@ public class SceneThreeController
         scoreLabel.setText("Score: " + score);
     }
     
-
+    void setMode(String mode)
+    {
+        this.mode = mode;
+    }
+    
+    private void gameOver()
+    {
+      if (mode == null)
+      {
+         return;
+      }
+      if (mode.equals("easy") && goalScored == 5 || mode.equals("medium") && goalScored == 3 || mode.equals("hard") && goalScored == 1)
+      {
+         try
+         {
+            switchScene();
+         }
+         catch (IOException e)
+         {
+            e.printStackTrace();
+         }
+      }
+    }
+    
+    private void switchScene() throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SceneFourFXML.fxml"));
+        Parent parent = loader.load();
+        //pass score
+        SceneFourController controller = loader.getController();
+        controller.setScore(score);
+        Scene scene = new Scene(parent);
+        Stage window = (Stage)gamePane.getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+    }
+    
     private class Ball
     {
         ImageView imageView;

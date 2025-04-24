@@ -22,9 +22,7 @@ public class GoalStopperApp extends Application
         
         scenes.put("scene1", new Scene(FXMLLoader.load(getClass().getResource("SceneOneController.fxml"))));
         scenes.put("scene2", new Scene(FXMLLoader.load(getClass().getResource("SceneTwoFXML.fxml"))));
-        scenes.put("scene3", new Scene(FXMLLoader.load(getClass().getResource("SceneThree.fxml"))));
-
-        
+             
         switchScene("scene1");
         stage.setTitle("Goal Stopper");
         stage.show();
