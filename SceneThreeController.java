@@ -22,6 +22,7 @@ import javafx.scene.Node;
 public class SceneThreeController
 {
     private String mode;
+    //private int attemptNumber;
     
     @FXML
     private AnchorPane gamePane;
@@ -131,11 +132,21 @@ public class SceneThreeController
       {
          return;
       }
-      if (mode.equals("easy") && goalScored == 5 || mode.equals("medium") && goalScored == 3 || mode.equals("hard") && goalScored == 1)
+      if (mode.equals("Easy") && goalScored == 5 || mode.equals("Medium") && goalScored == 3 || mode.equals("Hard") && goalScored == 1)
       {
          try
          {
-            switchScene();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("SceneFourFXML.fxml"));
+            Parent parent = loader.load();
+            //pass score
+            SceneFourController controller = loader.getController();
+            controller.setScore(score);
+            controller.setMode(mode);
+            Scene scene = new Scene(parent);
+            Stage window = (Stage)gamePane.getScene().getWindow();
+            window.setScene(scene);
+            window.show();
          }
          catch (IOException e)
          {
@@ -143,21 +154,7 @@ public class SceneThreeController
          }
       }
     }
-    
-    private void switchScene() throws IOException
-    {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SceneFourFXML.fxml"));
-        Parent parent = loader.load();
-        //pass score
-        SceneFourController controller = loader.getController();
-        controller.setScore(score);
-        Scene scene = new Scene(parent);
-        Stage window = (Stage)gamePane.getScene().getWindow();
-        window.setScene(scene);
-        window.show();
-    }
-    
+        
     private class Ball
     {
         ImageView imageView;

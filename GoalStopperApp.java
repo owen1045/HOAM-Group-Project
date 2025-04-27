@@ -13,16 +13,23 @@ public class GoalStopperApp extends Application
     private static Stage Astage;
     private static final HashMap<String, Scene> scenes = new HashMap<>();
     private static int ballSpeed = 3; 
+    private static GoalStopperModel model;
 
     @Override
     public void start(Stage stage) throws IOException
     {
         Astage = stage;
-
+        model = new GoalStopperModel();
         
         scenes.put("scene1", new Scene(FXMLLoader.load(getClass().getResource("SceneOneController.fxml"))));
         scenes.put("scene2", new Scene(FXMLLoader.load(getClass().getResource("SceneTwoFXML.fxml"))));
-             
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SceneFourFXML.fxml"));
+        Parent root = loader.load();
+        SceneFourController controller = loader.getController();
+        controller.setModel(model);
+        scenes.put("scene4", new Scene(root));
+        
         switchScene("scene1");
         stage.setTitle("Goal Stopper");
         stage.show();
