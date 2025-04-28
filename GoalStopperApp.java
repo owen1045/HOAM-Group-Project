@@ -31,7 +31,7 @@ public class GoalStopperApp extends Application
         scenes.put("scene4", new Scene(root));
         
         switchScene("scene1");
-        stage.setTitle("Goal Stopper");
+        stage.setTitle("Goal Scorers");
         stage.show();
     }
 

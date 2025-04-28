@@ -8,13 +8,12 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneOneController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="414.0" layoutX="-7.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="613.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fb33b" height="370.0" layoutX="27.0" layoutY="15.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="548.0" />
       <Circle fill="#0fb33b" layoutX="300.0" layoutY="200.0" radius="81.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
-      <Label contentDisplay="CENTER" graphicTextGap="6.0" layoutX="168.0" layoutY="163.0" prefHeight="54.0" prefWidth="324.0" text="Goal Stopper" textAlignment="CENTER" textFill="#fff600">
+      <Label contentDisplay="CENTER" graphicTextGap="6.0" layoutX="168.0" layoutY="163.0" prefHeight="54.0" prefWidth="324.0" text="Goal Scorers" textAlignment="CENTER" textFill="#fff600">
          <font>
             <Font name="Haettenschweiler" size="69.0" />
          </font>
