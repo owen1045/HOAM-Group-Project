@@ -15,6 +15,6 @@
    
 ### How to clone\run this application? 
     Required programs to run this application are JavaFX, 
-    SceneBuilder(optional, for editing of FXML files), and Eclipse.
+    SceneBuilder(optional, for editing of FXML files), and SQLite.
 
 
