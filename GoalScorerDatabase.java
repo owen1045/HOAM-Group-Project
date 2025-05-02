@@ -1,27 +1,26 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
     
 public class GoalScorerDatabase
 {
-   public static void main(String[] args)
-   {
-      
+   public static void insertAttempt(GoalStopperModel model) {
       try(Connection connection = DriverManager.getConnection("jdbc:sqlite:goalscorer.db"))
       {
+         String updateString = "INSERT INTO attempts (attemptNumber, mode, score) VALUES (?, ?, ?)";
          
-         Statement statement = connection.createStatement();
+         PreparedStatement ps = connection.prepareStatement(updateString);
          
-         statement.setQueryTimeout(30);
-         statement.executeUpdate("drop table if exists attempt");
-         statement.executeUpdate("create table attempt (number integer, score integer)");
-         statement.executeUpdate("insert into attempt values(1, 0)");
-         statement.executeUpdate("insert into attempt values(2, 0)");
+         ps.setInt(1, model.getAttemptNumber());
+         ps.setString(2, model.getMode());
+         ps.setInt(3, model.getScore());
+         
+         ps.executeUpdate();
       }
       catch(SQLException e)
       {
          System.out.printf("SQL ERROR:  %s%n", e.getMessage());
-      }                   
-   }
+      }
+   } 
 }

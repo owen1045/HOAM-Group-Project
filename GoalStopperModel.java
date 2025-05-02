@@ -27,6 +27,14 @@ public class GoalStopperModel {
       this.mode = mode;
    }
    
+   public int getScore() {
+      return score;
+   }
+   
+   public String getMode() {
+      return mode;
+   }
+   
    public void addHistory(String entry) {
       history.add(entry);
    }

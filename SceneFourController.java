@@ -66,6 +66,7 @@ public class SceneFourController {
       int attemptNumber = model.getAttemptNumber();
       String entry = String.format("Attempt: #%d  Mode: %s Score: %d", attemptNumber, mode, score);
       model.addHistory(entry);
+      GoalScorerDatabase.insertAttempt(model);
       scoreHistory.setText(model.getHistory());
     }
 }
